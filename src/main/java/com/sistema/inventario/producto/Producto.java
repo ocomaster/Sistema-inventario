@@ -1,5 +1,9 @@
 package com.sistema.inventario.producto;
 
+import java.util.ArrayList;
+import java.util.List;
+
+import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -7,6 +11,7 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
+import javax.persistence.OneToMany;
 
 import com.sistema.inventario.categoria.Categoria;
 
@@ -27,6 +32,13 @@ public class Producto {
 	@JoinColumn(name = "categoria_id")
 	private Categoria categoria;
 
+	@OneToMany(mappedBy = "producto", cascade = CascadeType.ALL)
+	private List<ProductoDetalles> detalles = new ArrayList<>();
+	
+	public void setDetalle(Integer id, String nombre, String valor) {
+		this.detalles.add(new ProductoDetalles(id, nombre, valor, this));
+	}
+	
 	public Integer getId() {
 		return id;
 	}
@@ -83,6 +95,18 @@ public class Producto {
 		this.nombre = nombre;
 	}
 	
+	
+	public void añadirDetalles(String nombre, String valor) {
+		this.detalles.add(new ProductoDetalles(nombre,valor, this));
+	}
+
+	public List<ProductoDetalles> getDetalles() {
+		return detalles;
+	}
+
+	public void setDetalles(List<ProductoDetalles> detalles) {
+		this.detalles = detalles;
+	}
 	
 	
 	
