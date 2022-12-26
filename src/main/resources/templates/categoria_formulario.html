@@ -26,23 +26,24 @@
 
 	<div class="container text-center">
 		<div>
-			<h1>Bienvenido a la aplicacion de inventario</h1>
+		<h1>Registro de categorias</h1>
 		</div>
-		<div class="p-2" >
-			<a class="h2" th:href="@{/categorias}">Lista de categorias</a>
-		</div>
-		<div class="p-2" >
-			<a class="h2" th:href="@{/categorias/nuevo}">Agregar categoria</a>
-		</div>
-		<div class="p-2" >
-			<a class="h2" th:href="@{/productos}">Lista de productos</a>
-		</div>
-		<div class="p-2" >
-			<a class="h2" th:href="@{/categorias/nuevo}">Agregar producto</a>
-		</div>
-		<div class="p-2" >
-			<a class="h2" th:href="@{/categorias/nuevo}">Crud con JUnit</a>
-		</div>
+		<form  th:action="@{/categorias/guardar}" th:object="${categoria}" method="post" style="max-width:600px; margin:0 auto;">
+			<div class="m-3">
+				<div class="form-group row">
+				<label class="col-form-label col-sm-4">Nombre de categoria :</label>
+				<div class="col-sm-8">
+				<input type="text" th:field="*{nombre}" class="form-control" required="required">
+				</div>
+				</div>
+				
+				<div class="text-center p">
+					<button type="submit" class="btn btn-primary">Guardar</button>
+				</div>
+			</div>
+		</form>
+
+
 	</div>
 </body>
 </html>

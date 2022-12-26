@@ -26,23 +26,29 @@
 
 	<div class="container text-center">
 		<div>
-			<h1>Bienvenido a la aplicacion de inventario</h1>
+			<h1>Lista de categorias</h1>
 		</div>
-		<div class="p-2" >
-			<a class="h2" th:href="@{/categorias}">Lista de categorias</a>
+
+		<br>
+		<div>
+			<table class="table table-bordered">
+				<thead class="thead-dark">
+					<tr>
+						<th>ID</th>
+						<th>Nombre</th>
+						
+					</tr>
+				</thead>
+				<tbody>
+					<tr th:each="categoria : ${listaCategorias}">
+						<td th:text="${categoria.id}">ID</td>
+						<td th:text="${categoria.nombre}">Nombre</td>
+					</tr>
+					
+				</tbody>
+			</table>
 		</div>
-		<div class="p-2" >
-			<a class="h2" th:href="@{/categorias/nuevo}">Agregar categoria</a>
-		</div>
-		<div class="p-2" >
-			<a class="h2" th:href="@{/productos}">Lista de productos</a>
-		</div>
-		<div class="p-2" >
-			<a class="h2" th:href="@{/categorias/nuevo}">Agregar producto</a>
-		</div>
-		<div class="p-2" >
-			<a class="h2" th:href="@{/categorias/nuevo}">Crud con JUnit</a>
-		</div>
+
 	</div>
 </body>
 </html>
