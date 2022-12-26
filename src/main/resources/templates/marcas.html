@@ -26,7 +26,7 @@
 
 	<div class="container text-center">
 		<div>
-			<h1>Lista de categorias</h1>
+			<h1>Lista de marcas</h1>
 		</div>
 
 		<br>
@@ -36,19 +36,22 @@
 					<tr>
 						<th>ID</th>
 						<th>Nombre</th>
+						<th>Categoria</th>
 						<th>Acciones</th>
 						
 					</tr>
 				</thead>
 				<tbody>
-					<tr th:each="categoria : ${listaCategorias}">
-						<td th:text="${categoria.id}">ID</td>
-						<td th:text="${categoria.nombre}">Nombre</td>
+					<tr th:each="marca : ${listaMarcas}">
+						<td th:text="${marca.id}">ID</td>
+						<td th:text="${marca.nombre}">Nombre</td>
+						<td th:text="${marca.categorias}">Categoria</td>
+					 
 						<td>
-						<a th:href="@{'/categorias/editar'+'/'+ ${categoria.id}}" class="btn btn-info">Editar</a>
+							<a th:href="@{'/marcas/editar'+'/'+ ${marca.id}}" class="btn btn-info">Editar</a>
 							&nbsp; &nbsp;
-							<a th:href="@{'/categorias/eliminar'+'/'+ ${categoria.id}}" class="btn btn-danger">Eliminar</a>
-						</td>
+							<a th:href="@{'/marcas/eliminar'+'/'+ ${marca.id}}" class="btn btn-danger">Eliminar</a>
+						</td>  
 					</tr>
 					
 				</tbody>

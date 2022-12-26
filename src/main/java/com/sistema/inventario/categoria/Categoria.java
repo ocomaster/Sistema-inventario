@@ -5,6 +5,10 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
+
+import com.sistema.inventario.marca.Marca;
 
 @Entity
 public class Categoria {
@@ -15,6 +19,34 @@ public class Categoria {
 	
 	@Column(length = 45, nullable = false, unique = true)
 	private String nombre;
+	
+	@ManyToOne
+	@JoinColumn(name = "marca_id")
+	private Marca marca;
+	
+	
+	
+
+	public Categoria(Integer id, String nombre, Marca marca) {
+		super();
+		this.id = id;
+		this.nombre = nombre;
+		this.marca = marca;
+	}
+	
+	public Categoria(String nombre, Marca marca) {
+		super();
+		this.nombre = nombre;
+		this.marca = marca;
+	}
+
+	public Marca getMarca() {
+		return marca;
+	}
+
+	public void setMarca(Marca marca) {
+		this.marca = marca;
+	}
 
 	public Integer getId() {
 		return id;
@@ -51,6 +83,12 @@ public class Categoria {
 	public Categoria(String nombre) {
 		super();
 		this.nombre = nombre;
+	}
+
+	@Override
+	public String toString() {
+		//return "Categoria [nombre=" + nombre + "]";
+		return nombre;
 	}
 	
 	
