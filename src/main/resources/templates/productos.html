@@ -38,6 +38,7 @@
 						<th>Nombre</th>
 						<th>Precio</th>
 						<th>Categoria</th>
+						<th>Acciones</th>
 						
 					</tr>
 				</thead>
@@ -47,6 +48,11 @@
 						<td th:text="${producto.nombre}">Nombre</td>
 						<td th:text="${producto.precio}">Precio</td>
 						<td th:text="${producto.categoria.nombre}">Nombre</td>
+						<td>
+							<a th:href="@{'/productos/editar'+'/'+ ${producto.id}}" class="btn btn-info">Editar</a>
+							&nbsp; &nbsp;
+							<a th:href="@{'/productos/eliminar'+'/'+ ${producto.id}}" class="btn btn-danger">Eliminar</a>
+						</td>
 					</tr>
 					
 				</tbody>

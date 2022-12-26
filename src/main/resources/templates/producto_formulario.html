@@ -26,7 +26,8 @@
 
 	<div class="container text-center">
 		<div>
-		<h1>Registro de productos</h1>
+		<h1 th:if="${producto.id == null}">Registro de productos</h1>
+		<h1 th:unless="${producto.id == null}">Editar producto</h1>
 		</div>
 		<form  th:action="@{/productos/guardar}" th:object="${producto}" method="post" style="max-width:600px; margin:0 auto;">
 			<div class="m-3">
