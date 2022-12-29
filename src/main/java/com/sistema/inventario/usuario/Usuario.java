@@ -3,8 +3,10 @@ package com.sistema.inventario.usuario;
 import java.util.HashSet;
 import java.util.Set;
 
+import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
@@ -26,7 +28,7 @@ public class Usuario {
 	private String password;
 	
 	
-	@ManyToMany
+	@ManyToMany //(cascade = CascadeType.PERSIST, fetch = FetchType.EAGER)
 	@JoinTable(name = "usuario_rol",joinColumns = @JoinColumn(name= "usuario_id"),
 	inverseJoinColumns = @JoinColumn(name ="rol_id"))
 	private Set<Rol> roles = new HashSet<>();

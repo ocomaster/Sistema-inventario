@@ -74,7 +74,30 @@ public class UsuarioRepositoryTest {
 	}
 	
 	
+	@Test
+	public void testCrearNuevoUsuarioConNuevoRol() {
+		Rol rolVendedor = new Rol("Vendedor");
+		Usuario usuario = new Usuario("Carlos@gmail.com"," 951357");
+
+		usuario.añadirRol(rolVendedor);
+		usuarioRepository.save(usuario);
+	}
 	
+	
+	@Test
+	public void testObtenerUsuario() {
+		Usuario usuario = usuarioRepository.findById(1).get();
+		entityManager.detach(usuario);
+		
+		System.out.println(usuario.getEmail());
+		System.out.println(usuario.getRoles());
+	
+	}
+	
+	@Test
+	public void testEliminarUsuario() {
+		usuarioRepository.deleteById(2);
+	}
 	
 	
 }
