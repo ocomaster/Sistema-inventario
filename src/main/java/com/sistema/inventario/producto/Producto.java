@@ -107,6 +107,16 @@ public class Producto {
 	public void setDetalles(List<ProductoDetalles> detalles) {
 		this.detalles = detalles;
 	}
+
+	public Producto(Integer id) {
+		super();
+		this.id = id;
+	}
+
+	@Override
+	public String toString() {
+		return "Producto [nombre=" + nombre + "]";
+	}
 	
 	
 	

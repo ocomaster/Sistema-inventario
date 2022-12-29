@@ -107,8 +107,20 @@ public class Usuario {
 	}
 
 
+	public Usuario(Integer id) {
+		super();
+		this.id = id;
+	}
+
+
 	public Usuario() {
 		super();
+	}
+
+
+	@Override
+	public String toString() {
+		return "Usuario [email=" + email + "]";
 	}
 	
 	

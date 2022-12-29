@@ -36,7 +36,7 @@
 					<tr>
 						<th>ID</th>
 						<th>Correo</th>
-						<th>Contraseña</th>
+						<!-- <th>Contraseña</th> -->
 						<th>Roles</th>
 						<th>Acciones</th>
 						
@@ -46,7 +46,7 @@
 					<tr th:each="usuario : ${listaUsuarios}">
 						<td th:text="${usuario.id}">ID</td>
 						<td th:text="${usuario.email}">Nombre</td>
-						<td th:text="${usuario.password}">contraseña</td>
+						<!-- <td th:text="${usuario.password}">contraseña</td> -->
 						<td th:text="${usuario.roles}">contraseña</td>
 						<td>
 					<a th:href="@{'/usuarios/editar'+'/'+ ${usuario.id}}" class="btn btn-info">Editar</a>
